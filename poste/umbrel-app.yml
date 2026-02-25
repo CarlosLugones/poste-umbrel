@@ -1,0 +1,51 @@
+manifestVersion: 1
+id: poste
+name: Poste.io
+tagline: Full-featured mail server with SMTP, IMAP, antispam, and webmail
+icon: https://poste.io/favicon.png
+category: Networking
+version: "2.4"
+port: 80
+description: >-
+  Poste.io is a complete, self-hosted mail server solution bundling SMTP, IMAP,
+  and POP3 with built-in antispam (Rspamd), antivirus (ClamAV), and a webmail
+  client (Roundcube) — all in a single Docker container.
+
+
+  Key features:
+
+  - Full SMTP/IMAP/POP3 support with modern encryption (ports 993/995)
+
+  - Spam filtering via Rspamd and virus scanning via ClamAV
+
+  - Webmail via Roundcube
+
+  - Native SPF, DKIM, DMARC, and SRS support with a setup wizard
+
+  - Web-based admin panel with multi-domain and multi-user management
+
+  - Autodiscovery for Thunderbird and Microsoft mail clients
+
+
+  Before using this app you need a domain name with proper DNS records
+  (MX, SPF, DKIM) and port forwarding on your router for ports 25, 587,
+  993, and 995. Set your mail hostname by creating a .env file in the app
+  directory with MAIL_HOSTNAME=mail.yourdomain.com, or configure it via
+  the poste.io setup wizard on first boot.
+
+developer: analogic
+website: https://poste.io
+submitter: Carlos Lugones
+submission: https://github.com/CarlosLugones/poste-umbrel
+repo: https://github.com/analogic/poste.io
+support: https://poste.io/doc
+gallery:
+  - https://poste.io/screenshots2/a1.png
+  - https://poste.io/screenshots2/a2.png
+  - https://poste.io/screenshots2/a3.png
+releaseNotes: >-
+  Initial release of poste.io for Umbrel.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

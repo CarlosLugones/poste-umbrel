@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+
+  app_proxy:
+    environment:
+      # The format here is: <app-id>_<docker-service-name>_1
+      APP_HOST: poste_server_1
+      APP_PORT: 80
+
+  server:
+    image: analogic/poste.io:latest
+    restart: unless-stopped
+    # Set MAIL_HOSTNAME in your .env file (e.g. MAIL_HOSTNAME=mail.yourdomain.com).
+    # If not set, poste.io will run but you should configure the hostname via
+    # the web admin wizard on first boot.
+    hostname: ${MAIL_HOSTNAME:-mail.example.com}
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    ports:
+      - "25:25"    # SMTP (inbound mail)
+      - "587:587"  # SMTP Submission (outbound authenticated mail)
+      - "993:993"  # IMAPS (encrypted IMAP)
+      - "995:995"  # POP3S (encrypted POP3)
+    environment:
+      - TZ=${TZ:-UTC}
+      # Disables automatic HTTP→HTTPS redirect and Let's Encrypt provisioning.
+      # The web admin UI is served via Umbrel's reverse proxy instead.
+      # For mail SSL (ports 993/995), configure your certificates in the
+      # poste.io admin panel or place them in APP_DATA_DIR/ssl/.
+      - HTTPS=OFF
