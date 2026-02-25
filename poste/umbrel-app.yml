@@ -5,7 +5,7 @@ tagline: Full-featured mail server with SMTP, IMAP, antispam, and webmail
 icon: https://poste.io/favicon.png
 category: Networking
 version: "2.4"
-port: 80
+port: 8025
 description: >-
   Poste.io is a complete, self-hosted mail server solution bundling SMTP, IMAP,
   and POP3 with built-in antispam (Rspamd), antivirus (ClamAV), and a webmail
